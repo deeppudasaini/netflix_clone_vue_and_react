@@ -13,13 +13,13 @@
       >
       <div class="banner_contents">
         <h1 class="banner_title">
-          {{headMovie.title}}
+          {{headMovie?.name || headMovie?.title || headMovie?.original_name}}
         </h1>
         <div class="banner_buttons">
           <button class="banner_button">Play</button>
           <button class="banner_button">My List</button>
         </div>
-        <h1 class="banner_description">{{headMovie.overview}}</h1>
+        <h1 class="banner_description">{{headMovie?.overview}}</h1>
       </div>
       <div class="banner-fadeBottom" />
     </header>
@@ -39,22 +39,19 @@ data()
 },
 created()
 {
-const req=axios.get(requests.fetchNetflixOriginals);
-this.headMovie=req.data.results[0];
-console.log(this.headMovie);
+return axios.get(requests.fetchNetflixOriginals).then(res => {
+  this.headMovie = res.data.results[
+    Math.floor(Math.random() * res.data.results.length - 1)
+  ]
+})
+
 }
 }
 
 </script>
 
 <style scoped>
-header{
-    background-size: "cover";
-        background-image: url(
-          "https://image.tmdb.org/t/p/original/${headMovie?.backdrop_path}"
-          );
-        background-position: "center center";
-}
+
 .banner {
   color: white;
   object-fit: contain;

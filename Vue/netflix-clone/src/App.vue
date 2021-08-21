@@ -1,5 +1,6 @@
 <template>
 <div>
+  <Nav />
   <Banner />
     <Row title="Trending" :fetchUrl=requests.fetchTrending :isLarge=true />
       <Row title="Top Rated" :fetchUrl=requests.fetchTopRated />
@@ -17,13 +18,13 @@
 <script>
 import Row from './components/Row.vue'
 import Banner from './components/Banner.vue'
-// import Nav from './components/Row.vue'
+import Nav from './components/Nav.vue'
 
 import requests from './api/requests' 
 export default {
   name: 'App',
   components: {
-    Row,Banner
+    Row,Banner,Nav
   },
   data () {
     return {requests:requests};

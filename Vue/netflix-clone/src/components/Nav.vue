@@ -1,6 +1,6 @@
 <template>
 <!-- :class={`nav ${handleShow && "nav_black"}` -->
-  <div class="nav nav_black" }>
+  <div class="nav nav_black" >
       <img
         class="nav_logo"
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/640px-Netflix_2015_logo.svg.png"
